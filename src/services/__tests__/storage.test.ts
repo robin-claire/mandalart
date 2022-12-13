@@ -1,11 +1,12 @@
-import { saveItem, loadItem } from './storage';
+import { vi } from 'vitest';
+import { saveItem, loadItem } from '../storage';
 
 describe('storage', () => {
-  jest.spyOn(window.localStorage.__proto__, 'setItem');
+  vi.spyOn(window.localStorage.__proto__, 'setItem');
 
   beforeEach(() => {
-    window.localStorage.__proto__.setItem = jest.fn();
-    window.localStorage.__proto__.getItem = jest.fn();
+    window.localStorage.__proto__.setItem = vi.fn();
+    window.localStorage.__proto__.getItem = vi.fn();
   });
 
   describe('saveItem', () => {
