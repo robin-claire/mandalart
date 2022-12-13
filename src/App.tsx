@@ -1,9 +1,13 @@
-import { useState } from "react";
-
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <p>App</p>;
+  return (
+    <div>
+      <h1>Mandarat</h1>
+      <div>
+        <p>Main Goal: </p>
+        <input />
+      </div>
+    </div>
+  );
 }
 
 export default App;
