@@ -9,6 +9,12 @@ describe('Home', () => {
     expect(getByText('나만의 목표를 만들어요')).not.toBeNull();
   })
 
+  it('renders Logo.', () => {
+    const { getByText } = render(<Home />);
+
+    expect(getByText('왕멋진로고')).not.toBeNull();
+  })
+
   it('renders Login Buttons', () => {
     const { getByRole } = render(<Home />);
 

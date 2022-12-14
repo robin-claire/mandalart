@@ -1,58 +1,28 @@
-import { Box, Typography, Button } from '@mui/material';
+import { Typography, Button } from '@mui/material';
 
-import { purple } from '@mui/material/colors'
-
-const color = purple[200];
+import { CenterBox, PageBox } from '../components/customs/Box';
 
 function Home() {
+  console.log(CenterBox)
+
   return (
-    <Box
-      sx={{
-        margin: '0 auto',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        backgroundColor: color
-      }}
-      minHeight="100vh" // todo: fix this
-      maxWidth="414px"
-    >
-      <Box>
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Typography variant='h2'>
-            만다라트
-          </Typography>
-          <Typography variant='body1'>
-            나만의 목표를 만들어요
-          </Typography>
-        </Box>
-      </Box>
-      <Box
-        sx={{
-          marginTop: 16
-        }}
-      >
+    <PageBox>
+      <CenterBox>
+        <Typography variant='h2'>
+          만다라트
+        </Typography>
+        <Typography variant='body1'>
+          나만의 목표를 만들어요
+        </Typography>
+      </CenterBox>
+      <CenterBox>
         <Typography variant='h2'>왕멋진로고</Typography>
-      </Box>
-      <Box
-        sx={{
-          margin: '0 2',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
+      </CenterBox>
+      <CenterBox>
         <Button>Google</Button>
         <Button>Kakao</Button>
-      </Box>
-    </Box >
+      </CenterBox>
+    </PageBox>
   )
 }
 
