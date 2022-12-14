@@ -19,10 +19,13 @@ describe('Home', () => {
     const { getByRole } = render(<Home />);
 
     expect(getByRole('button', {
-      name: "Google"
+      name: "Google로 로그인",
     })).not.toBeNull();
     expect(getByRole('button', {
-      name: "Kakao"
+      name: "Kakao로 로그인",
+    })).not.toBeNull();
+    expect(getByRole('button', {
+      name: "이메일로 로그인",
     })).not.toBeNull();
   })
 })

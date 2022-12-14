@@ -3,21 +3,6 @@ import { purple } from '@mui/material/colors'
 
 const BACKGROUNDCOLOR = purple[200];
 
-export function CenterBox({ children }) {
-  return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      }}
-      marginTop={16} // todo: fix this
-    >
-      {children}
-    </Box>
-  )
-}
-
 export function PageBox({ children }) {
   return (
     <Box sx={{
