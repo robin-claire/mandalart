@@ -7,7 +7,7 @@ import {
   Button,
 } from '@mui/material';
 
-import { PageBox, CenterBox } from '../components/customs/Box';
+import { PageBox } from '../components/PageBox';
 
 function SignIn() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
