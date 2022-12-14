@@ -1,6 +1,6 @@
 import { Typography, Button, Grid } from '@mui/material';
 
-import { CenterBox, PageBox } from '../components/customs/Box';
+import { PageBox } from '../components/PageBox';
 
 function Home() {
   return (
