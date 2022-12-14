@@ -1,4 +1,5 @@
 import {
+  Grid,
   Box,
   Typography,
   TextField,
@@ -22,10 +23,11 @@ function SignIn() {
 
   return (
     <PageBox>
-      <CenterBox>
-        <Typography variant='h2'>
+      <Grid container>
+        <Grid item xs={12} mt={8}>
+          <Typography variant='h2'>
           Sign In Page
-        </Typography>
+          </Typography>
         <Box
           component="form"
           onSubmit={handleSubmit}
@@ -65,8 +67,9 @@ function SignIn() {
           >
             Sign In
           </Button>
-        </Box>
-      </CenterBox>
+        </Box>        
+        </Grid>
+      </Grid>
     </PageBox>
   )
 }
