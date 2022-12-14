@@ -18,19 +18,19 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <Error />
+    errorElement: <Error />,
   },
   {
     path: "/home",
-    element: <Home />
+    element: <Home />,
   },
   {
     path: "/sign-up",
-    element: <SignUp />
+    element: <SignUp />,
   },
   {
     path: "/sign-in",
-    element: <SignIn />
+    element: <SignIn />,
   },
 ])
 
@@ -50,8 +50,8 @@ const inputGlobalStyles = <GlobalStyles
       padding: 0,
     },
     'ol, ul, li': {
-      listStyle: 'none'
-    }
+      listStyle: 'none',
+    },
   }}
 />
 
