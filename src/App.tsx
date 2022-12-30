@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { GlobalStyles } from '@mui/material';
@@ -12,7 +14,8 @@ import Error from './pages/Error';
 import Home from './pages/Home';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
-import React from 'react';
+import AboutMandalart from './pages/AboutMandalart';
+import AboutDevelopers from './pages/AboutDevelopers';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +34,14 @@ const router = createBrowserRouter([
   {
     path: "/sign-in",
     element: <SignIn />,
+  },
+  {
+    path: "/about-mandalart",
+    element: <AboutMandalart />,
+  },
+  {
+    path: "/about-developers",
+    element: <AboutDevelopers />,
   },
 ])
 
