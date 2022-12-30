@@ -13,11 +13,30 @@ export const SignInPage = {
     second: '세워 볼까요?',
   },
   buttons: {
-    platform: {
-      kakao: '카카오',
-      google: '구글',
-      twitter: '트위터',
-    },
+    platform: [
+      {
+        title: '카카오',
+        color: {
+          container: '#FEE500',
+          symbol: '#000000 85%',
+        },
+        icon: '',
+      },
+      {
+        title: '구글',
+        color: {
+          container: '#FFFFFF',
+        },
+        icon: '',
+      },
+      {
+        title: '트위터',
+        color: {
+          container: '#1DA1F2',
+        },
+        icon: '',
+      },
+    ],
     text: '로 시작하기',
   },
 }
