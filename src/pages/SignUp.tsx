@@ -1,15 +1,20 @@
 import {
-  Box,
   Grid,
+  Box,
   Typography,
   TextField,
+  FormControlLabel,
+  Divider,
+  Checkbox,
   Button,
-  Link,
 } from '@mui/material';
 
-import { PageBox } from '../components/PageBox';
+// import PageBox from 'components/PageBox';
+import PageBox from '../components/PageBox';
+// import DescButton from 'components/agreement/DescButon';
+import DescButton from '../components/agreement/DescButon';
 
-function SignUp() {
+function SignIn() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -24,67 +29,89 @@ function SignUp() {
       <Grid container>
         <Grid item xs={12} mt={8}>
           <Typography variant='h2'>
-            Sign Up Page
+            회원가입
           </Typography>
-        </Grid>
-        <Grid item xs={12} mt={8} p={4}>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  autoComplete="name"
-                  name="name"
-                  required
-                  fullWidth
-                  id="name"
-                  label="Name"
-                  aria-label='Name'
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  aria-label='Email Address'
-                  name="email"
-                  autoComplete="email"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  aria-label='Password'
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
-                />
-              </Grid>
-            </Grid>
+          <Box
+            component="form"
+            onSubmit={handleSubmit}
+            noValidate
+            sx={{ mt: 1, p: 4 }}
+          >
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+              }}
+            >
+              <Typography variant='h6'>
+                닉네임
+              </Typography>
+              <TextField
+                margin="normal"
+                fullWidth
+                id="nickname"
+                label="닉네임"
+                aria-label="Email Address"
+              />
+              <Typography variant='h6'>
+                이메일 (선택)
+              </Typography>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                aria-label="Email Address"
+              />
+            </Box>
+            <FormControlLabel
+              sx={{ width: '100%' }}
+              checked={false}
+              control={<Checkbox value="all" color="primary" />}
+              label={
+                <Typography>전체 동의</Typography>
+              }
+            />
+            <Divider />
+            <FormControlLabel
+              sx={{ width: '100%' }}
+              checked={false}
+              control={<Checkbox value="age" color="primary" />}
+              label={
+                <DescButton
+                  isOpen={false}
+                  onClose={() => { }}
+                  title={'age'}
+                  description={'age description'}
+                />}
+            />
+            <FormControlLabel
+              sx={{ width: '100%' }}
+              checked={false}
+              control={<Checkbox value="service" color="primary" />}
+              label={
+                <DescButton
+                  isOpen={false}
+                  onClose={() => { }}
+                  title={'service'}
+                  description={'service description'}
+                />}
+            />
             <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign Up
+              계정 만들기
             </Button>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Link href="/sign-in" variant="body2">
-                  Already have an account? Sign in
-                </Link>
-              </Grid>
-            </Grid>
           </Box>
         </Grid>
       </Grid>
-    </PageBox >
+    </PageBox>
   )
 }
 
-export default SignUp;
+export default SignIn;
