@@ -1,9 +1,11 @@
+import React from 'react';
+
 import { Box } from '@mui/material';
 import { purple } from '@mui/material/colors'
 
 const BACKGROUNDCOLOR = purple[200];
 
-export function PageBox({ children }) {
+function PageBox({ children }: { children: React.ReactNode }) {
   return (
     <Box sx={{
       margin: '0 auto',
@@ -19,3 +21,5 @@ export function PageBox({ children }) {
     </Box>
   )
 }
+
+export default PageBox;
