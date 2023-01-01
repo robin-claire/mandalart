@@ -14,6 +14,8 @@ import PageBox from '../components/PageBox';
 // import DescButton from 'components/agreement/DescButon';
 import DescButton from '../components/agreement/DescButon';
 
+import { SignUpPage } from '../fixtures/constants';
+
 function SignIn() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -29,7 +31,7 @@ function SignIn() {
       <Grid container>
         <Grid item xs={12} mt={8}>
           <Typography variant='h2'>
-            회원가입
+            {SignUpPage.title}
           </Typography>
           <Box
             component="form"
@@ -41,64 +43,51 @@ function SignIn() {
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'flex-start',
               }}
             >
-              <Typography variant='h6'>
-                닉네임
-              </Typography>
-              <TextField
-                margin="normal"
-                fullWidth
-                id="nickname"
-                label="닉네임"
-                aria-label="Email Address"
-              />
-              <Typography variant='h6'>
-                이메일 (선택)
-              </Typography>
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                aria-label="Email Address"
-              />
+              {
+                [SignUpPage.inputs.nickName, SignUpPage.inputs.email].map(({ id, title }) => (
+                  <div key={id}>
+                    <Typography variant='h6' align='left'>
+                      {title}
+                    </Typography>
+                    <TextField
+                      margin="normal"
+                      fullWidth
+                      id={id}
+                      label={id}
+                      aria-label={id}
+                    />
+                  </div>
+                ))
+              }
             </Box>
             <FormControlLabel
               sx={{ width: '100%' }}
               checked={false}
               control={<Checkbox value="all" color="primary" />}
               label={
-                <Typography>전체 동의</Typography>
+                <Typography>{SignUpPage.buttons.agreeAll.title}</Typography>
               }
             />
             <Divider />
-            <FormControlLabel
-              sx={{ width: '100%' }}
-              checked={false}
-              control={<Checkbox value="age" color="primary" />}
-              label={
-                <DescButton
-                  isOpen={false}
-                  onClose={() => { }}
-                  title={'age'}
-                  description={'age description'}
-                />}
-            />
-            <FormControlLabel
-              sx={{ width: '100%' }}
-              checked={false}
-              control={<Checkbox value="service" color="primary" />}
-              label={
-                <DescButton
-                  isOpen={false}
-                  onClose={() => { }}
-                  title={'service'}
-                  description={'service description'}
-                />}
-            />
+            {
+              [SignUpPage.buttons.agreeAge, SignUpPage.buttons.agreeUsage].map(({ title, description }) => (
+                <FormControlLabel
+                  sx={{ width: '100%' }}
+                  checked={false}
+                  key={title}
+                  control={<Checkbox value={title} color="primary" />}
+                  label={
+                    <DescButton
+                      isOpen={false}
+                      onClose={() => { }}
+                      title={title}
+                      description={description}
+                    />}
+                />
+              ))
+            }
             <Button
               type="submit"
               fullWidth
