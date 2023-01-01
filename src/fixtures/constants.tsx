@@ -44,11 +44,19 @@ export const SignInPage = {
 export const SignUpPage = {
   title: '회원가입',
   inputs: {
-    nickName: '닉네임',
-    email: '이메일(선택)',
+    nickName: {
+      id: 'nickname',
+      title: '닉네임',
+    },
+    email: {
+      id: 'email',
+      title: '이메일(선택)',
+    },
   },
   buttons: {
-    agreeAll: '전체 동의',
+    agreeAll: {
+      title: '전체 동의',
+    },
     agreeAge: {
       title: '만 14세 이상',
       description: '',
@@ -57,7 +65,9 @@ export const SignUpPage = {
       title: '이용약관 및 개인정보수집 이용 동의',
       description: '',
     },
-    submit: '계정 만들기',
+    submit: {
+      title: '계정 만들기',
+    },
   },
 }
 
