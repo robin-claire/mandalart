@@ -12,6 +12,7 @@ import { SignInPage } from '../fixtures/constants';
 import PageBox from '../components/PageBox';
 
 function SignIn() {
+  const { description } = SignInPage;
   const { platform, text } = SignInPage.buttons;
 
   return (
@@ -21,14 +22,16 @@ function SignIn() {
           <Typography variant='h2'>
             {SignInPage.title}
           </Typography>
-          <Typography variant='h4'>
-            {SignInPage.description.first}
-          </Typography>
-          <Typography variant='h4'>
-            {SignInPage.description.second}
-          </Typography>
+          {
+            description.map((text) => (
+              <Typography key={text} variant='h4'>
+                {text}
+              </Typography>
+            ))
+          }
           <Box
             sx={{
+
               p: 4,
             }}>
             {
