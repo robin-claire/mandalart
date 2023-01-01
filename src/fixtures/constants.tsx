@@ -1,17 +1,17 @@
 export const HomePage = {
-  title: '가제: 만다라트로 계획 세우기',
-  description: {
-    first: '나만의 인생 목표를',
-    second: '세워 볼까요?',
-  },
+  title: '만다라트',
+  description: [
+    '2023년 새해를 맞아',
+    '나만의 목표를 세워 볼까요?',
+  ],
 }
 
 export const SignInPage = {
   title: '가제: 만다라트로 계획 세우기',
-  description: {
-    first: '나만의 인생 목표를',
-    second: '세워 볼까요?',
-  },
+  description: [
+    '나만의 인생 목표를',
+    '세워 볼까요?',
+  ],
   buttons: {
     platform: [
       {
@@ -54,7 +54,7 @@ export const SignUpPage = {
       description: '',
     },
     agreeUsage: {
-      title: '이용약관 및 개인정보 수집 동의',
+      title: '이용약관 및 개인정보수집 이용 동의',
       description: '',
     },
     submit: '계정 만들기',
