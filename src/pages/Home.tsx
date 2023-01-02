@@ -1,6 +1,6 @@
 import { Typography, Button, Grid } from '@mui/material';
 
-import { PageBox } from '../components/PageBox';
+import PageBox from '../components/PageBox';
 
 function Home() {
   return (
