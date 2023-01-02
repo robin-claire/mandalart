@@ -1,10 +1,12 @@
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 
-import { fireEvent } from '@testing-library/react';
+import { vi } from 'vitest';;
 
 import SignUp from '../SignUp';
 
 import { SignUpPage } from '../../fixtures/constants';
+
+vi.mock('../../fixtures/constants.tsx');
 
 describe('Sign Up Page', () => {
   it('renders title.', () => {
@@ -14,18 +16,26 @@ describe('Sign Up Page', () => {
   });
 
   describe('renders inputs.', () => {
-    it('renders nickname and email', () => {
+    it('of nickname and email.', () => {
       const { getByText } = render(<SignUp />);
 
-      expect(getByText(SignUpPage.inputs.nickName)).not.toBeNull();
-      expect(getByText(SignUpPage.inputs.email)).not.toBeNull();
+      expect(getByText(SignUpPage.inputs.nickName.title)).not.toBeNull();
+      expect(getByText(SignUpPage.inputs.email.title)).not.toBeNull();
     });
+
+    it('enter nicknames.')
+
+    it('email is optional.')
+
+    it('email is optional.')
   });
 
   describe('Agreements.', () => {
     describe('Agree All', () => {
       it('when agree all is checked, other agrees have to be checked.', () => {
-        const { getByLabelText } = render(<SignUp />);
+        const { getByText } = render(<SignUp />);
+
+        expect(getByText(SignUpPage.buttons.agreeAll.title));
       })
     });
 
@@ -46,7 +56,7 @@ describe('Sign Up Page', () => {
           //check modal is showed
         });
 
-        it('Agree Age', () => {
+        it('Agree Usage', () => {
           const { getByText } = render(<SignUp />);
 
           fireEvent.click(getByText(SignUpPage.buttons.agreeAge.title));
@@ -58,30 +68,32 @@ describe('Sign Up Page', () => {
     });
   });
 
-  describe('SignUp Button', () => {
-    const text = SignUpPage.buttons.submit;
+  describe('submit button', () => {
+    const text = SignUpPage.buttons.submit.title;
 
-    it('renders Sign Up text.', () => {
+    it('renders submit button.', () => {
       const { getByText } = render(<SignUp />);
 
       expect(getByText(text)).not.toBeNull();
     });
 
-    it('when form is not valid, doesn\'t occur handleSubmit.', () => {
-      const { getByText } = render(<SignUp />);
+    describe('when button is clicked, ', () => {
+      it('when form is not valid, doesn\'t occur handleSubmit.', () => {
+        const { getByText } = render(<SignUp />);
 
-      fireEvent.click(getByText(text));
+        fireEvent.click(getByText(text));
 
-      //nothing occurs
-    });
+        //nothing occurs
+      });
 
 
-    it('when form is valid, occurs handleSubmit.', () => {
-      const { getByText } = render(<SignUp />);
+      it('when form is valid, occurs handleSubmit.', () => {
+        const { getByText } = render(<SignUp />);
 
-      fireEvent.click(getByText(text));
+        fireEvent.click(getByText(text));
 
-      //handleSubmit
-    });
+        //handleSubmit
+      });
+    })
   });
 });

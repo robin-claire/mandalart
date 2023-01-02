@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import SignIn from '../SignIn';
 
-import { SignInPage } from 'fixtures/constants';
+import { SignInPage } from '../../fixtures/constants';
 
 describe('SignIn', () => {
   it('renders title.', () => {
