@@ -2,6 +2,9 @@ import React from 'react';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import { Provider } from 'react-redux';
+import { store } from './app/store';
+
 import { GlobalStyles } from '@mui/material';
 
 import '@fontsource/roboto/300.css';
@@ -70,8 +73,10 @@ const inputGlobalStyles = <GlobalStyles
 function App() {
   return (
     <React.Fragment>
-      {inputGlobalStyles}
-      <RouterProvider router={router} />
+      <Provider store={store}>
+        {inputGlobalStyles}
+        <RouterProvider router={router} />
+      </Provider>
     </React.Fragment>
   )
 }
