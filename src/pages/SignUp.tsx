@@ -9,8 +9,8 @@ import {
   Button,
 } from '@mui/material';
 
-// import PageBox from 'components/PageBox';
-import PageBox from '../components/PageBox';
+// import PageContainer from 'components/PageContainer';
+import PageContainer from '../components/PageContainer';
 // import DescButton from 'components/agreement/DescButon';
 import DescButton from '../components/agreement/DescButon';
 
@@ -27,7 +27,7 @@ function SignIn() {
   };
 
   return (
-    <PageBox>
+    <PageContainer>
       <Grid container>
         <Grid item xs={12} mt={8}>
           <Typography variant='h2'>
@@ -99,7 +99,7 @@ function SignIn() {
           </Box>
         </Grid>
       </Grid>
-    </PageBox>
+    </PageContainer>
   )
 }
 

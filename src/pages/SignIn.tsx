@@ -8,15 +8,15 @@ import {
 import { SignInPage } from '../fixtures/constants';
 //import { SignInPage } from 'fixtures/constants';
 
-// import PageBox from 'components/PageBox';
-import PageBox from '../components/PageBox';
+// import PageContainer from 'components/PageContainer';
+import PageContainer from '../components/PageContainer';
 
 function SignIn() {
   const { description } = SignInPage;
   const { platform, text } = SignInPage.buttons;
 
   return (
-    <PageBox>
+    <PageContainer>
       <Grid container>
         <Grid item xs={12} mt={8}>
           <Typography variant='h2'>
@@ -44,7 +44,7 @@ function SignIn() {
           </Box>
         </Grid>
       </Grid>
-    </PageBox>
+    </PageContainer>
   );
 }
 

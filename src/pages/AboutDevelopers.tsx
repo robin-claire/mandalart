@@ -3,11 +3,11 @@ import {
   Typography,
 } from '@mui/material';
 
-import PageBox from '../components/PageBox';
+import PageContainer from '../components/PageContainer';
 
 function AboutDevelopers() {
   return (
-    <PageBox>
+    <PageContainer>
       <Grid container>
         <Grid item xs={12} mt={8}>
           <Typography variant='h2'>
@@ -15,7 +15,7 @@ function AboutDevelopers() {
           </Typography>
         </Grid>
       </Grid>
-    </PageBox>
+    </PageContainer>
   )
 }
 
