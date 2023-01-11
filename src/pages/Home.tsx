@@ -1,35 +1,77 @@
-import { Typography, Button, Grid } from '@mui/material';
+import { useState } from 'react';
 
-import PageBox from '../components/PageBox';
+import { useSelector } from 'react-redux';
+
+import {
+  Grid,
+  Box,
+  Typography,
+} from '@mui/material';
+
+import PageContainer from '../components/PageContainer';
+import InputGrid from '../components/input/InputGrid';
+
+import { HomePage } from '../fixtures/constants';
+
+import { selectGoals, selectTheme, selectTitle, selectTutorialStep } from '../app/mandalartSlice';
 
 function Home() {
+  const theme = useSelector(selectTheme);
+  const title = useSelector(selectTitle);
+  const goals = useSelector(selectGoals);
+  const tutorialSteps = useSelector(selectTutorialStep);
+
+  const [clickedButtonNumber, setClickedButtonNumber] = useState<number | undefined>(undefined);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const onCloseModal = () => {
+    setClickedButtonNumber(undefined);
+    setIsModalOpen(false);
+  };
+
+  const onClickButton = (num: number) => {
+    console.log(clickedButtonNumber, isModalOpen, num);
+
+    if (!clickedButtonNumber && !isModalOpen) {
+      setClickedButtonNumber(num);
+      setIsModalOpen(true);
+    }
+
+    if (num === clickedButtonNumber && isModalOpen) {
+      onCloseModal();
+    }
+  };
+
+  const checkModalOpen = (buttonNumber: number) =>
+    isModalOpen && (clickedButtonNumber === buttonNumber);
+
   return (
-    <PageBox>
-      <Grid container>
-        <Grid item xs={12} mt={8}>
-          <Typography variant='h2'>
-            만다라트
-          </Typography>
-          <Typography variant='body1'>
-            나만의 목표를 만들어요
-          </Typography>
-        </Grid>
-        <Grid item xs={12} mt={8}>
-          <Typography variant='h2'>왕멋진로고</Typography>
-        </Grid>
-        <Grid item xs={12} mt={8} p={4}>
-          <Button variant='outlined' fullWidth>
-            Google로 로그인
-          </Button>
-          <Button variant='outlined' fullWidth sx={{ mt: 2 }}>
-            Kakao로 로그인
-          </Button>
-          <Button variant='outlined' fullWidth sx={{ mt: 2 }}>
-            이메일로 로그인
-          </Button>
-        </Grid>
+    <PageContainer>
+      <Typography mt={4} sx={{ fontSize: '24px' }}>
+        {title}
+      </Typography>
+      <Box mt={4} height={2} sx={{ backgroundColor: "#BFEADA" }} />
+      <Grid
+        container
+        spacing={{ xs: 2 }}
+        columns={{ xs: 3 }}
+        sx={{
+          backgroundColor: "#EAEBEA",
+        }}
+      >
+        {
+          Array.from(goals).map((goal, index) => (
+            <InputGrid
+              key={index}
+              isModalOpen={checkModalOpen(index)}
+              onClick={() => onClickButton(index)}
+              onClose={onCloseModal}
+              goal={goal}
+            />
+          ))
+        }
       </Grid>
-    </PageBox >
+    </PageContainer >
   )
 }
 
