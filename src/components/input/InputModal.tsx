@@ -17,14 +17,14 @@ const modalBoxStyle = {
 };
 
 type InputModalProps = {
-  key: number;
+  index: number;
   isModalOpen: boolean;
   onClose: (isOpen: boolean) => void;
   goal: string
 }
 
 function InputModal({
-  key,
+  index,
   isModalOpen,
   onClose,
   goal,
@@ -34,10 +34,10 @@ function InputModal({
     <Modal
       open={isModalOpen}
       onClose={onClose}
-      aria-labelledby={`input modal ${key}`}
+      aria-labelledby={`input modal ${index}`}
     >
       <Box sx={modalBoxStyle}>
-        <h2>{key}번째 입력</h2>
+        <h2>{index === 4 ? '핵심 목표 입력' : `${index}` + '번째 목표 입력'}</h2>
         <TextField variant='outlined' value={goal} />
       </Box>
     </Modal >
