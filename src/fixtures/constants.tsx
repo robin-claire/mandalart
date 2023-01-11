@@ -1,9 +1,12 @@
 export const HomePage = {
-  title: '만다라트',
-  description: [
-    '2023년 새해를 맞아',
-    '나만의 목표를 세워 볼까요?',
-  ],
+  default: {
+    title: '2023년 목표',
+    coreGoal: [
+      '핵심 목표',
+      '추가',
+    ],
+  },
+  finish: '완성',
 }
 
 export const SignInPage = {
