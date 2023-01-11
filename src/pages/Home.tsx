@@ -9,11 +9,19 @@ import {
 } from '@mui/material';
 
 import PageContainer from '../components/PageContainer';
-import InputGrid from '../components/input/InputGrid';
+import GoalButton from '../components/input/GoalButton';
+import InputModal from '../components/input/InputModal';
 
-import { HomePage } from '../fixtures/constants';
+import {
+  HomePage,
+} from '../fixtures/constants';
 
-import { selectGoals, selectTheme, selectTitle, selectTutorialStep } from '../app/mandalartSlice';
+import {
+  selectGoals,
+  selectTheme,
+  selectTitle,
+  selectTutorialStep,
+} from '../app/mandalartSlice';
 
 function Home() {
   const theme = useSelector(selectTheme);
@@ -60,16 +68,22 @@ function Home() {
         }}
       >
         {
-          Array.from(goals).map((goal, index) => (
-            <InputGrid
-              key={index}
-              isModalOpen={checkModalOpen(index)}
-              onClick={() => onClickButton(index)}
-              onClose={onCloseModal}
-              goal={goal}
-            />
+          goals.map((goal, index) => (
+            <Grid item xs={1} key={index}>
+              <GoalButton
+                isCoreGoal={index === 4}
+                goal={goal}
+                onClick={() => onClickButton(index)}
+              />
+            </Grid>
           ))
         }
+        <InputModal
+          index={clickedButtonNumber ? clickedButtonNumber : -1}
+          isModalOpen={isModalOpen}
+          onClose={onCloseModal}
+          goal={clickedButtonNumber ? goals[clickedButtonNumber] : ''}
+        />
       </Grid>
     </PageContainer >
   )
